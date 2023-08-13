@@ -1,10 +1,12 @@
-import MenuBar from "components/MenuBar"
-import SearchBar from "components/SearchBar"
+import NavBar from "components/NavBar"
 
-const Layout = () =>{
-    return(
-        <div>
-            <MenuBar/>
+const Layout = ({ children }) => {
+    return (
+        <div className="flex justify-center">
+            <div className="w-[1340px]">
+                <NavBar />
+                {children}
+            </div>
         </div>
     )
 }
