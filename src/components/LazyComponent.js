@@ -1,11 +1,11 @@
 import React, { Suspense } from 'react';
-
+import SkeletonLoading from "components/SkeletonLoading"
 const LazyComponent = (
     Component
 ) => {
 
     return () => (
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<SkeletonLoading />}>
             <Component />
         </Suspense>
     );
