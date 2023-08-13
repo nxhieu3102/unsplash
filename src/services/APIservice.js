@@ -1,10 +1,10 @@
 import axios from 'axios';
 
 const API_IMAGE = process.env.REACT_APP_API_IMAGE;
-const ACCESS_KEY = process.env.REACT_APP_ACCESS_KEY2;
+const ACCESS_KEY = process.env.REACT_APP_ACCESS_KEY3;
 
 const APIService = {
-    getRandomPhotos: async () => {
+    getRandomPhotos: async (param) => {
         try {
             const response = await axios.get(`${API_IMAGE}/photos/random`,
                 {
@@ -18,7 +18,20 @@ const APIService = {
             console.log(error);
         }
     },
-
+    getRandomPhotosNext: async (param) => {
+        try {
+            const response = await axios.get(`${API_IMAGE}/photos/random`,
+                {
+                    params: {
+                        count: 10,
+                        client_id: ACCESS_KEY,
+                    }
+                });
+            return response.data;
+        } catch (error) {
+            console.log(error);
+        }
+    },
     getPhotosByTopic: async (topic) => {
         try {
             const response = await axios.get(`${API_IMAGE}/topics/${topic}/photos`,
@@ -34,8 +47,36 @@ const APIService = {
             console.log(error);
         }
     },
+    getPhotosByTopicNext: async (topic) => {
+        try {
+            const response = await axios.get(`${API_IMAGE}/topics/${topic}/photos`,
+                {
+                    params: {
+                        page: 1,
+                        per_page: 10,
+                        client_id: ACCESS_KEY,
+                    }
+                });
+            return response.data;
+        } catch (error) {
+            console.log(error);
+        }
+    },
 
     searchPhotos: async (query) => {
+        try {
+            const response = await axios.get(`${API_IMAGE}/photos/search/`, {
+                params: {
+                    query: query,
+                    client_id: ACCESS_KEY,
+                },
+            });
+            return response.data;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    searchPhotosNext: async (query) => {
         try {
             const response = await axios.get(`${API_IMAGE}/photos/search/`, {
                 params: {
