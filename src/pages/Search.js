@@ -17,7 +17,9 @@ const Search = () => {
         <div>
             <BasePage
                 dependencies={[query]}
-                promise={APIService.searchPhotos(query)}
+                fnc={APIService.searchPhotos}
+                fncNext={APIService.searchPhotosNext}
+                fncParam={query}
             />
         </div>
     )

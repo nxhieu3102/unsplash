@@ -17,7 +17,9 @@ const Topic = () => {
         <div>
             <BasePage
                 dependencies={[topic]}
-                promise={APIService.getPhotosByTopic(topic)}
+                fnc={APIService.getPhotosByTopic}
+                fncNext={APIService.getPhotosByTopicNext}
+                fncParam={topic}
             />
         </div>
     )

@@ -5,7 +5,8 @@ const Home = () => {
     return (
         <div>
             <BasePage
-                promise={APIService.getRandomPhotos()}
+                fnc={APIService.getRandomPhotos}
+                fncNext={APIService.getRandomPhotosNext}
             />
         </div>
     )
