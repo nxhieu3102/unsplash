@@ -6,7 +6,6 @@ const PhotoList = ({ list }) => {
     return (
         <Masonry columnsCount={3} gutter="20px">
             {list.map((Item, index) => {
-                console.log(Item)
                 return (
                     <div className="w-full" key={index}>
                         {
