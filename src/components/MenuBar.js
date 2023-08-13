@@ -1,38 +1,53 @@
 import { Menu } from "antd"
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const items = [
     {
-        label: 'Navigation One',
-        key: 'mail',
-        icon: <MailOutlined />,
+        label: 'Home',
+        key: 'home',
     },
     {
-        label: 'Navigation Two',
-        key: 'app',
-        icon: <AppstoreOutlined />,
+        label: 'Animal',
+        key: 'animal',
     },
     {
-        label: 'Navigation Three - Submenu',
-        key: 'SubMenu',
-        icon: <SettingOutlined />,
+        label: 'Sports',
+        key: 'sports',
     },
     {
-        label: (
-            <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
-                Navigation Four - Link
-            </a>
-        ),
-        key: 'alipay',
+        label: 'Game',
+        key: 'game',
+    },
+    {
+        label: 'Science',
+        key: 'science',
     },
 ];
 
+const STYLE = {
+    display: "flex",
+    justifyContent: 'center',
+}
+
 const MenuBar = () => {
+    const navigate = useNavigate();
+    const [current, setCurrent] = useState('home');
+
+    const onClick = (e) => {
+        setCurrent(e.key);
+        if(e.key !== 'home')
+            navigate("/collection/" + e.key)
+        else navigate("/")
+    };
+
     return (
         <Menu
-            theme="dark"
-            mode="horizonReactDOMtal"
-            defaultSelectedKeys={['2']}
+            style={STYLE}
+            mode="horizontal"
             items={items}
+            onClick={onClick}
+            selectedKeys={[current]}
         />
     )
 }
