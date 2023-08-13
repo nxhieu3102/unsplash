@@ -1,9 +1,17 @@
 const Photo = ({
-    src
+    src,
+    color,
+    altDescription
 }) => {
     return (
-        <div>
-            <img src={src} alt="" />
+        <div className="imageWrapper"
+            style={{
+                "backgroundColor": color,
+            }}>
+            <img
+                className="image image-fullsize"
+                src={src}
+                alt={altDescription} />
         </div>
     )
 }
