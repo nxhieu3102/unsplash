@@ -1,3 +1,135 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700&display=swap");
+
+body{
+    background-color: #edebeb;
+}
+
+
+.intro {
+    background-color: #f2e786;
+    width: 100%;
+    text-align: center;
+}
+
+h1 {
+    font-size: 48px;
+    color: black;
+    font-weight: 900;
+    display: inline;
+    background-image: linear-gradient(#f2e786 60%, #f9aae7 5%);
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+.container .card {
+    overflow: hidden;
+    margin: 12px;
+    border-radius: 3px;
+    box-shadow: 9px 17px 45px -29px rgba(0, 0, 0, 0.44);
+}
+
+.container .card-image img {
+    width: 100%;
+    height: 100%;
+}
+.container .card-image.loading {
+    border-radius: 3px;
+}
+.container .card-chart img {
+    width: 100%;
+    height: 100%;
+}
+.container .card-chart.loading {
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+}
+
+.container .card-title {
+    padding: 8px;
+    font-size: 22px;
+    font-weight: 700;
+}
+.container .card-title.loading {
+    height: 1rem;
+    margin: 1rem;
+    border-radius: 3px;
+    width: 85%;
+}
+
+.container .card-title.loading.shorter-m {
+    width: 50%;
+}
+
+.container .card-title.loading.shorter-s {
+    width: 25%;
+}
+
+.loading {
+    position: relative;
+    background-color: #f5f5f5;
+    overflow: hidden;
+}
+.loading::after {
+    display: block;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translateX(-100%);
+    animation: 2s loading linear 0.5s infinite;
+    background: linear-gradient(90deg, transparent, #e6e2e2, transparent);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    transform: translateX(-100%);
+    z-index: 1;
+}
+
+@keyframes loading {
+    0% {
+        transform: translateX(-100%);
+    }
+    60% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.footer {
+    text-align: center;
+    color: #ccc;
+}
+
+.container .table {
+    background-color: #fff;
+    height: auto;
+    width: 60%;
+    overflow: hidden;
+    margin: 12px;
+    border-radius: 3px;
+    box-shadow: 9px 17px 45px -29px rgba(0, 0, 0, 0.44);
+}
+
+.container .table-content {
+    padding: 8px;
+    font-size: 22px;
+    font-weight: 700;
+}
+.container .table-content.loading {
+    height: 1rem;
+    margin: 1rem;
+    border-radius: 3px;
+    width: 92%;
+}
