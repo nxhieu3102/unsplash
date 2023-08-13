@@ -8,7 +8,7 @@ export default function App() {
 	const routes = [
 		{ path: "/", element: <Home /> },
 		{ path: "/topic/:name", element: <Topic /> },
-		{ path: "/search/q=:query", element: <Search />}
+		{ path: "/search/:query", element: <Search />}
 	];
 
 	return (
