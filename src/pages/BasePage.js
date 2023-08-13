@@ -6,6 +6,7 @@ const BasePage = ({
     fnc,
     fncNext = null,
     fncParam = null,
+    isResults = false,
     dependencies = [null]
 }) => {
 
@@ -14,16 +15,21 @@ const BasePage = ({
 
     const fetchData = () => {
         fnc(fncParam).then((data) => {
-            setPhotos(data);
             setIsLoading(false);
+            if(isResults)
+                setPhotos(data.results);
+            else setPhotos(data);
         });
     };
 
     const fetchDataNext = () => {
         setIsLoading(true);
         fncNext(fncParam).then((data) => {
-            setPhotos((prev) => [...prev, ...data]);
             setIsLoading(false);
+            if(isResults)
+                setPhotos((prev) => [...prev, ...data.results]);
+            else 
+                setPhotos((prev) => [...prev, ...data]);
         });
     };
 
