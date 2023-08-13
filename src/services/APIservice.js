@@ -6,10 +6,11 @@ const ACCESS_KEY = process.env.REACT_APP_ACCESS_KEY2;
 const APIService = {
     getRandomPhotos: async () => {
         try {
-            const response = await axios.get(`${API_IMAGE}/photos/random/?client_id=${ACCESS_KEY}`,
+            const response = await axios.get(`${API_IMAGE}/photos/random`,
                 {
                     params: {
-                        count: 30
+                        count: 30,
+                        client_id: ACCESS_KEY,
                     }
                 });
             return response.data;
@@ -18,9 +19,14 @@ const APIService = {
         }
     },
 
-    getPhotosByCollection: async (collection) => {
+    getPhotosByTopic: async (topic) => {
         try {
-            const response = await axios.get(`${API_IMAGE}/search/collections/${collection}/?client_id=${ACCESS_KEY}`);
+            const response = await axios.get(`${API_IMAGE}/topics/${topic}/photos`,
+                {
+                    params: {
+                        client_id: ACCESS_KEY,
+                    }
+                });
             return response.data;
         } catch (error) {
             console.log(error);
@@ -29,8 +35,11 @@ const APIService = {
 
     searchPhotos: async (query) => {
         try {
-            const response = await axios.get(`${API_IMAGE}/photos/search/?client_id=${ACCESS_KEY}`, {
-                params: { q: query },
+            const response = await axios.get(`${API_IMAGE}/photos/search/`, {
+                params: { 
+                    query: query,
+                    client_id: ACCESS_KEY,
+                },
             });
             return response.data;
         } catch (error) {

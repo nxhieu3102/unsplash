@@ -8,20 +8,20 @@ const items = [
         key: '/',
     },
     {
-        label: 'Animal',
-        key: '/collection/animal',
+        label: 'Animals',
+        key: '/topic/animals',
     },
     {
-        label: 'Sports',
-        key: '/collection/sports',
+        label: 'Travel',
+        key: '/topic/travel',
     },
     {
-        label: 'Game',
-        key: '/collection/game',
+        label: 'Athletics',
+        key: '/topic/athletics',
     },
     {
-        label: 'Science',
-        key: '/collection/science',
+        label: 'Film',
+        key: '/topic/film',
     },
 ];
 
