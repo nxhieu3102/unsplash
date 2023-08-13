@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API_IMAGE = process.env.REACT_APP_API_IMAGE;
-const ACCESS_KEY = process.env.REACT_APP_ACCESS_KEY3;
+const ACCESS_KEY = process.env.REACT_APP_ACCESS_KEY;
 
 const APIService = {
     getRandomPhotos: async (param) => {
