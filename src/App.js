@@ -1,14 +1,17 @@
-import {BrowserRouter, Routes, Route} from "react-router-dom";
-import Home from "pages/Home";
-import Topic from "pages/Topic";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "components/Layout";
-import Search from "pages/Search";
+import LazyComponent from "components/LazyComponent";
+import React from 'react';
+
+const Home = LazyComponent(React.lazy(() => import("pages/Home")));
+const Search = LazyComponent(React.lazy(() => import("pages/Search")));
+const Topic = LazyComponent(React.lazy(() => import("pages/Topic")));
 
 export default function App() {
 	const routes = [
 		{ path: "/", element: <Home /> },
 		{ path: "/topic/:name", element: <Topic /> },
-		{ path: "/search/:query", element: <Search />}
+		{ path: "/search/:query", element: <Search /> }
 	];
 
 	return (
