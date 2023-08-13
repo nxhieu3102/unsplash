@@ -1,27 +1,27 @@
 import { Menu } from "antd"
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const items = [
     {
         label: 'Home',
-        key: 'home',
+        key: '/',
     },
     {
         label: 'Animal',
-        key: 'animal',
+        key: '/collection/animal',
     },
     {
         label: 'Sports',
-        key: 'sports',
+        key: '/collection/sports',
     },
     {
         label: 'Game',
-        key: 'game',
+        key: '/collection/game',
     },
     {
         label: 'Science',
-        key: 'science',
+        key: '/collection/science',
     },
 ];
 
@@ -32,13 +32,12 @@ const STYLE = {
 
 const MenuBar = () => {
     const navigate = useNavigate();
-    const [current, setCurrent] = useState('home');
+    const location = useLocation();
+    const [current, setCurrent] = useState(location.pathname);
 
     const onClick = (e) => {
         setCurrent(e.key);
-        if(e.key !== 'home')
-            navigate("/collection/" + e.key)
-        else navigate("/")
+        navigate(e.key)
     };
 
     return (
