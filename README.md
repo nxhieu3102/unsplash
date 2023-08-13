@@ -2,7 +2,7 @@
 
 ## Demo
 
-Check out the live demo: [Demo Link](https://unsplash-rm06ufp40-nxhieu3102.vercel.app/s)
+Check out the live demo: [Demo Link](https://unsplash-rm06ufp40-nxhieu3102.vercel.app/)
 
 ## Libraries
 
