@@ -1,21 +1,26 @@
 import axios from 'axios';
 
 const API_IMAGE = process.env.REACT_APP_API_IMAGE;
-const ACCESS_KEY = process.env.REACT_APP_ACCESS_KEY;
+const ACCESS_KEY = process.env.REACT_APP_ACCESS_KEY2;
 
 const APIService = {
     getRandomPhotos: async () => {
         try {
-            const response = await axios.get(`${API_IMAGE}/photos/random/?client_id=${ACCESS_KEY}`);
+            const response = await axios.get(`${API_IMAGE}/photos/random/?client_id=${ACCESS_KEY}`,
+                {
+                    params: {
+                        count: 30
+                    }
+                });
             return response.data;
         } catch (error) {
             console.log(error);
         }
     },
 
-    getPhotosByTopic: async (topic) => {
+    getPhotosByCollection: async (collection) => {
         try {
-            const response = await axios.get(`${API_IMAGE}/search/collections/${topic}/?client_id=${ACCESS_KEY}`);
+            const response = await axios.get(`${API_IMAGE}/search/collections/${collection}/?client_id=${ACCESS_KEY}`);
             return response.data;
         } catch (error) {
             console.log(error);
