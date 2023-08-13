@@ -1,12 +1,14 @@
 import { Input } from "antd"
+import { useNavigate } from "react-router-dom";
 const Search = Input.Search
 
 const SearchBar = () => {
-    const onSearch = (value) => console.log(value);
+    const navigate = useNavigate();
+    const onSearch = (value) => navigate(`/search/${value}`);
 
     return (
         <div className="flex align-center">
-            <Search placeholder="input search text"
+            <Search placeholder="topic"
                 onSearch={onSearch}
                 style={{
                     width: 200,

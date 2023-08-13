@@ -6,7 +6,7 @@ import BasePage from "pages/BasePage"
 
 const Search = () => {
     const params = useParams()
-    const _ = params.name
+    const _ = params.query
 
     const [query, setQuery] = useState(_)
     useEffect(() => {
@@ -20,6 +20,7 @@ const Search = () => {
                 fnc={APIService.searchPhotos}
                 fncNext={APIService.searchPhotosNext}
                 fncParam={query}
+                isResults={true}
             />
         </div>
     )
