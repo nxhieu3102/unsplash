@@ -2,22 +2,23 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import APIService from "services/APIservice"
-import PhotoList from "components/PhotoList"
+import BasePage from "pages/BasePage"
 
 const Search = () => {
     const params = useParams()
-    const query = params.query
-    const [photos, setPhotos] = useState([])
+    const _ = params.name
 
+    const [query, setQuery] = useState(_)
     useEffect(() => {
-        APIService.searchPhotos(query).then((data) => {
-            setPhotos(data)
-        })
-    }, [])
+        setQuery(_)
+    }, [_])
 
     return (
         <div>
-            {photos && <PhotoList list={photos} />}
+            <BasePage
+                dependencies={[query]}
+                promise={APIService.searchPhotos(query)}
+            />
         </div>
     )
 }

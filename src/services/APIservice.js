@@ -24,6 +24,8 @@ const APIService = {
             const response = await axios.get(`${API_IMAGE}/topics/${topic}/photos`,
                 {
                     params: {
+                        page: 1,
+                        per_page: 20,
                         client_id: ACCESS_KEY,
                     }
                 });
@@ -36,7 +38,7 @@ const APIService = {
     searchPhotos: async (query) => {
         try {
             const response = await axios.get(`${API_IMAGE}/photos/search/`, {
-                params: { 
+                params: {
                     query: query,
                     client_id: ACCESS_KEY,
                 },

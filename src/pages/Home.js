@@ -1,19 +1,12 @@
-import { useState, useEffect } from "react"
 import APIService from "services/APIservice"
-import PhotoList from "components/PhotoList"
+import BasePage from "pages/BasePage"
 
 const Home = () => {
-    const [photos, setPhotos] = useState([])
-
-    useEffect(() => {
-        APIService.getRandomPhotos().then((data) => {
-            setPhotos(data)
-        })
-    }, [])
-
     return (
         <div>
-            {photos && <PhotoList list={photos} />}
+            <BasePage
+                promise={APIService.getRandomPhotos()}
+            />
         </div>
     )
 }
