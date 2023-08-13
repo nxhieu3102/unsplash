@@ -28,6 +28,7 @@ const items = [
 const STYLE = {
     display: "flex",
     justifyContent: 'center',
+    backgroundColor: 'transparent',
 }
 
 const MenuBar = () => {
