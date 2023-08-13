@@ -9,7 +9,7 @@ const APIService = {
             const response = await axios.get(`${API_IMAGE}/photos/random`,
                 {
                     params: {
-                        count: 30,
+                        count: 20,
                         client_id: ACCESS_KEY,
                     }
                 });
@@ -64,10 +64,12 @@ const APIService = {
     },
 
     searchPhotos: async (query) => {
+        console.log(query)
         try {
-            const response = await axios.get(`${API_IMAGE}/photos/search/`, {
+            const response = await axios.get(`${API_IMAGE}/search/photos`, {
                 params: {
                     query: query,
+                    per_page: 20,
                     client_id: ACCESS_KEY,
                 },
             });
@@ -77,10 +79,12 @@ const APIService = {
         }
     },
     searchPhotosNext: async (query) => {
+    
         try {
-            const response = await axios.get(`${API_IMAGE}/photos/search/`, {
+            const response = await axios.get(`${API_IMAGE}/search/photos`, {
                 params: {
                     query: query,
+                    per_page: 10,
                     client_id: ACCESS_KEY,
                 },
             });
